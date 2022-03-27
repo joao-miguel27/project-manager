@@ -355,7 +355,7 @@
             <property name="name">add_projectframe</property>
             <property name="pos"></property>
             <property name="size">-1,-1</property>
-            <property name="style">wxCAPTION|wxFRAME_FLOAT_ON_PARENT|wxFRAME_TOOL_WINDOW</property>
+            <property name="style">wxCAPTION|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR|wxFRAME_TOOL_WINDOW</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">Add Project</property>
             <property name="tooltip"></property>
