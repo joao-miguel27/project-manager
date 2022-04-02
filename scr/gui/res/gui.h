@@ -87,13 +87,14 @@ class add_projectframe : public wxFrame
 		wxTextCtrl* Description_textCtrl;
 		wxStaticText* command_staticText;
 		wxTextCtrl* command_textCtrl;
-		wxListBox* m_listBox1;
+		wxListBox* command_listBox;
 		wxButton* create_project_button;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void add_project_name( wxCommandEvent& event ) { event.Skip(); }
 		virtual void add_description( wxCommandEvent& event ) { event.Skip(); }
 		virtual void add_command( wxCommandEvent& event ) { event.Skip(); }
+		virtual void item_clicked( wxCommandEvent& event ) { event.Skip(); }
 		virtual void create_project( wxCommandEvent& event ) { event.Skip(); }
 
 

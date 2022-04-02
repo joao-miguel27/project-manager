@@ -1,5 +1,6 @@
 #include "main.h"
 #include "gui/mainframe.h"
+#include "gui/add_project.h"
 
 IMPLEMENT_APP(project_manager)
 

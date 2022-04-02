@@ -114,11 +114,11 @@ add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxStr
 
 	addproject_Sizer->Add( command_staticText, 0, wxALL|wxEXPAND, 5 );
 
-	command_textCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	command_textCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
 	addproject_Sizer->Add( command_textCtrl, 0, wxALL|wxEXPAND, 5 );
 
-	m_listBox1 = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	addproject_Sizer->Add( m_listBox1, 0, wxALL|wxEXPAND, 5 );
+	command_listBox = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_EXTENDED|wxLB_NEEDED_SB|wxLB_SINGLE );
+	addproject_Sizer->Add( command_listBox, 0, wxALL|wxEXPAND, 5 );
 
 
 	addproject_Sizer->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -136,7 +136,8 @@ add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxStr
 	// Connect Events
 	add_project_textCtrl1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( add_projectframe::add_project_name ), NULL, this );
 	Description_textCtrl->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( add_projectframe::add_description ), NULL, this );
-	command_textCtrl->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( add_projectframe::add_command ), NULL, this );
+	command_textCtrl->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( add_projectframe::add_command ), NULL, this );
+	command_listBox->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( add_projectframe::item_clicked ), NULL, this );
 	create_project_button->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( add_projectframe::create_project ), NULL, this );
 }
 
