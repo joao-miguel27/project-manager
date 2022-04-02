@@ -1,9 +1,9 @@
 #include"mainframe.h"
 #include"../util/write_project.h"
 #include"add_project.h"
-#include <vector>
+#include <iostream>
 
-using std::vector;
+using std::vector, std::string;
 
 pm_add_project_frame::pm_add_project_frame(wxWindow* parent) : add_projectframe(parent){}
 
@@ -19,18 +19,35 @@ void pm_mainframe::add_project(wxCommandEvent& event){
     // write_project(proj);
 }
 
-// {
-// unsigned int list_box_pos = 0;
+
 vector<wxString> commands;
 
 void pm_add_project_frame::add_command(wxCommandEvent& event){
 
-    // GetLineText(0);
+    
     wxString command = command_textCtrl->GetLineText(0);
     commands.push_back(command);
+    command_textCtrl->SelectAll();
     command_listBox->Append(command);
-    // list_box_pos++;
+    // for(auto i=commands.begin(); i != commands.end(); i++){std::cout<<"a  "<<*i<<std::endl;}
 
 }
 
-// }
+void pm_add_project_frame::item_clicked(wxCommandEvent& event){
+
+    int selec = command_listBox->GetSelection();
+    wxString selec_string = command_listBox->GetString(selec);
+    
+    command_listBox->Deselect(selec);
+    command_listBox->Delete(selec);
+
+    for(auto i=commands.begin(); i != commands.end(); i++){
+        if(*i == selec_string){
+            commands.erase(i);
+            break;
+        }
+        else
+            continue;
+    }
+    // for(auto i=commands.begin(); i != commands.end(); i++){std::cout<<"a  "<<*i<<std::endl;}
+}

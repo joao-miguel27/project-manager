@@ -100,7 +100,7 @@ class add_projectframe : public wxFrame
 
 	public:
 
-		add_projectframe( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Add Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxCAPTION|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR|wxFRAME_TOOL_WINDOW|wxTAB_TRAVERSAL );
+		add_projectframe( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Add Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxCAPTION|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR|wxFRAME_TOOL_WINDOW|wxSTAY_ON_TOP|wxTAB_TRAVERSAL );
 
 		~add_projectframe();
 

@@ -117,7 +117,7 @@ add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxStr
 	command_textCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
 	addproject_Sizer->Add( command_textCtrl, 0, wxALL|wxEXPAND, 5 );
 
-	command_listBox = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_EXTENDED|wxLB_NEEDED_SB|wxLB_SINGLE );
+	command_listBox = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_ALWAYS_SB|wxLB_NEEDED_SB|wxLB_SINGLE );
 	addproject_Sizer->Add( command_listBox, 0, wxALL|wxEXPAND, 5 );
 
 
