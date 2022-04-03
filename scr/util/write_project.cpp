@@ -1,6 +1,6 @@
 #include"write_project.h"
 
-void write_project(project project){
+void write_project(wxString name, wxString description, vector<wxString> commands){
 
     wxXmlDocument projects_file;
     wxString projectsFile = wxStandardPaths::Get().GetUserDataDir() + 
@@ -19,17 +19,16 @@ void write_project(project project){
 
     projects_file.Load(projectsFile);
 
-    wxXmlNode* name_node = new wxXmlNode(projects_file.GetRoot(), wxXML_ELEMENT_NODE, 
-                                        project.name);
+    wxXmlNode* name_node = new wxXmlNode(projects_file.GetRoot(), wxXML_ELEMENT_NODE, name);
 
     wxXmlNode* description_node = new wxXmlNode(name_node, wxXML_ELEMENT_NODE
                                                 , wxT("description"));
                                     
-    new wxXmlNode(description_node, wxXML_TEXT_NODE, wxT("description"), project.description);
+    new wxXmlNode(description_node, wxXML_TEXT_NODE, wxT("description"), description);
 
     wxXmlNode* commands_node = new wxXmlNode(name_node, wxXML_ELEMENT_NODE, wxT("commands"));
 
-    for(const wxString& i : project.commands){
+    for(const wxString& i : commands){
 
         wxXmlNode* command_node = new wxXmlNode(commands_node, wxXML_ELEMENT_NODE, wxT("command"));
 

@@ -84,14 +84,14 @@ add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxStr
 	wxBoxSizer* addproject_Sizer;
 	addproject_Sizer = new wxBoxSizer( wxVERTICAL );
 
-	add_project_staticText = new wxStaticText( this, wxID_ANY, _("Project Name"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
-	add_project_staticText->Wrap( -1 );
-	add_project_staticText->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_SLANT, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+	add_name_staticText = new wxStaticText( this, wxID_ANY, _("Project Name"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );
+	add_name_staticText->Wrap( -1 );
+	add_name_staticText->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_SLANT, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 
-	addproject_Sizer->Add( add_project_staticText, 0, wxALL|wxEXPAND, 5 );
+	addproject_Sizer->Add( add_name_staticText, 0, wxALL|wxEXPAND, 5 );
 
-	add_project_textCtrl1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	addproject_Sizer->Add( add_project_textCtrl1, 0, wxALL|wxEXPAND, 5 );
+	add_name_textCtrl = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	addproject_Sizer->Add( add_name_textCtrl, 0, wxALL|wxEXPAND, 5 );
 
 
 	addproject_Sizer->Add( 250, 5, 0, wxEXPAND, 5 );
@@ -134,7 +134,7 @@ add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxStr
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	add_project_textCtrl1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( add_projectframe::add_project_name ), NULL, this );
+	add_name_textCtrl->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( add_projectframe::add_project_name ), NULL, this );
 	Description_textCtrl->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( add_projectframe::add_description ), NULL, this );
 	command_textCtrl->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( add_projectframe::add_command ), NULL, this );
 	command_listBox->Connect( wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler( add_projectframe::item_clicked ), NULL, this );

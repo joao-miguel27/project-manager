@@ -81,8 +81,8 @@ class add_projectframe : public wxFrame
 	private:
 
 	protected:
-		wxStaticText* add_project_staticText;
-		wxTextCtrl* add_project_textCtrl1;
+		wxStaticText* add_name_staticText;
+		wxTextCtrl* add_name_textCtrl;
 		wxStaticText* Description_staticText;
 		wxTextCtrl* Description_textCtrl;
 		wxStaticText* command_staticText;

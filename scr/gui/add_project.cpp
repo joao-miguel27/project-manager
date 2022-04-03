@@ -7,20 +7,30 @@ using std::vector, std::string;
 
 pm_add_project_frame::pm_add_project_frame(wxWindow* parent) : add_projectframe(parent){}
 
+wxString name;
+wxString description;
+vector<wxString> commands;
+
 void pm_mainframe::add_project(wxCommandEvent& event){
 
-    project proj;
     wxFrame* add_project_frame = new pm_add_project_frame(NULL);
     add_project_frame->Show(true);
-    // proj.name = "top";
-    // proj.description = "tgmeroy";
-    // proj.commands = {"fwt", "tgrewy"};
 
-    // write_project(proj);
 }
 
+void pm_add_project_frame::add_project_name(wxCommandEvent& event){
 
-vector<wxString> commands;
+    name = add_name_textCtrl->GetLineText(0);
+
+
+}
+
+void pm_add_project_frame::add_description(wxCommandEvent& event){
+
+    description = Description_textCtrl->GetLineText(0);
+
+
+}
 
 void pm_add_project_frame::add_command(wxCommandEvent& event){
 
@@ -29,7 +39,7 @@ void pm_add_project_frame::add_command(wxCommandEvent& event){
     commands.push_back(command);
     command_textCtrl->SelectAll();
     command_listBox->Append(command);
-    // for(auto i=commands.begin(); i != commands.end(); i++){std::cout<<"a  "<<*i<<std::endl;}
+    // for(auto i=proj->commands.begin(); i != proj->commands.end(); i++){std::cout<<"a  "<<*i<<std::endl;}
 
 }
 
@@ -49,5 +59,13 @@ void pm_add_project_frame::item_clicked(wxCommandEvent& event){
         else
             continue;
     }
-    // for(auto i=commands.begin(); i != commands.end(); i++){std::cout<<"a  "<<*i<<std::endl;}
+    // for(auto i=proj->commands.begin(); i != proj->commands.end(); i++){std::cout<<"a  "<<*i<<std::endl;}
+}
+
+void pm_add_project_frame::create_project(wxCommandEvent& event){
+
+    write_project(name, description, commands);
+
+    add_projectframe::~add_projectframe();
+
 }

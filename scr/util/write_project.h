@@ -8,16 +8,7 @@
 
 using std::vector;
 
-
-struct project{
-    wxString name;
-
-    wxString description;
-
-    vector<wxString> commands;
-};
-
-void write_project(project project);
+void write_project(wxString name, wxString description, vector<wxString> commands);
 
 
 #endif
