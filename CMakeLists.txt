@@ -16,14 +16,11 @@ set(SOURCE
 
 add_executable(${PROJECT_NAME} ${SOURCE})
 
-find_package(wxWidgets COMPONENTS gl core base OPTIONAL_COMPONENTS net)
+find_package(wxWidgets REQUIRED COMPONENTS gl core base xml OPTIONAL_COMPONENTS net)
 if(wxWidgets_FOUND)
   include(${wxWidgets_USE_FILE})
   # and for each of your dependent executable/library targets:
   target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
-else()
-  target_link_libraries(${PROJECT_NAME} "`wx-config-gtk3 --libs`")
-  add_definitions(`wx-config-gtk3 --cxxflags`)
 endif()
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

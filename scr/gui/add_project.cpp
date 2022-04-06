@@ -3,7 +3,7 @@
 #include"add_project.h"
 #include <iostream>
 
-using std::vector, std::string;
+using std::vector; using std::string;
 
 pm_add_project_frame::pm_add_project_frame(wxWindow* parent) : add_projectframe(parent){}
 
