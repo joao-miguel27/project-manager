@@ -14,7 +14,7 @@ class pm_add_project_frame : public add_projectframe{
         void item_clicked(wxCommandEvent& event);
 
     public:
-        pm_add_project_frame(wxWindow* parent);
+        pm_add_project_frame(wxWindow *parent);
         // ~pm_add_project_frame();
 
 };

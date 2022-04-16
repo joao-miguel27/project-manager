@@ -13,7 +13,7 @@ class pm_mainframe : public mainframe{
 
 	public:
 
-		pm_mainframe(wxWindow* parent);
+		pm_mainframe(wxWindow *parent);
 
 };
 
@@ -25,7 +25,7 @@ class pm_aboutframe : public aboutframe{
 
     public:
 
-        pm_aboutframe(wxWindow* parent);
+        pm_aboutframe(wxWindow *parent);
 
 };
 

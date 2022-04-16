@@ -11,12 +11,13 @@ set(SOURCE
   scr/gui/res/gui.cpp scr/gui/res/gui.h
   scr/gui/mainframe.cpp scr/gui/mainframe.h
   scr/util/write_project.cpp scr/util/write_project.h
+  scr/util/read_project.cpp scr/util/read_project.h
   scr/gui/add_project.cpp scr/gui/add_project.h
   )
 
 add_executable(${PROJECT_NAME} ${SOURCE})
 
-find_package(wxWidgets REQUIRED COMPONENTS gl core base xml OPTIONAL_COMPONENTS net)
+find_package(wxWidgets REQUIRED )#COMPONENTS gl core base xml
 if(wxWidgets_FOUND)
   include(${wxWidgets_USE_FILE})
   # and for each of your dependent executable/library targets:

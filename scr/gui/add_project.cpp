@@ -5,7 +5,7 @@
 
 using std::vector; using std::string;
 
-pm_add_project_frame::pm_add_project_frame(wxWindow* parent) : add_projectframe(parent){}
+pm_add_project_frame::pm_add_project_frame(wxWindow *parent) : add_projectframe(parent){}
 
 wxString name;
 wxString description;
@@ -13,7 +13,7 @@ vector<wxString> commands;
 
 void pm_mainframe::add_project(wxCommandEvent& event){
 
-    wxFrame* add_project_frame = new pm_add_project_frame(NULL);
+    wxFrame *add_project_frame = new pm_add_project_frame(NULL);
     add_project_frame->Show(true);
 
 }

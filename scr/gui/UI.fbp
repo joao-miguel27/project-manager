@@ -198,7 +198,7 @@
             <property name="name">aboutframe</property>
             <property name="pos"></property>
             <property name="size">-1,-1</property>
-            <property name="style">wxCAPTION|wxCLOSE_BOX|wxFRAME_FLOAT_ON_PARENT</property>
+            <property name="style">wxCAPTION|wxCLOSE_BOX|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title">About</property>
             <property name="tooltip"></property>

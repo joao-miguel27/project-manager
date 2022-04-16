@@ -3,40 +3,38 @@
 void write_project(wxString name, wxString description, vector<wxString> commands){
 
     wxXmlDocument projects_file;
-    wxString projectsFile = wxStandardPaths::Get().GetUserDataDir() + 
+    wxString projects_path = wxStandardPaths::Get().GetUserDataDir() + 
                           wxFileName::GetPathSeparator() + 
-                          wxT("projects.xml");
+                          "projects.xml";
     
-    if(!wxFileName::FileExists(projectsFile)){
+    if(!wxFileName::FileExists(projects_path)){
           
-        wxFileName::Mkdir(wxStandardPaths::Get().GetUserDataDir()
-        , wxS_DIR_DEFAULT, wxPATH_MKDIR_FULL);
+        wxFileName::Mkdir(wxStandardPaths::Get().GetUserDataDir(), wxS_DIR_DEFAULT, wxPATH_MKDIR_FULL);
 
-        projects_file.SetRoot(new wxXmlNode(wxXML_ELEMENT_NODE, wxT("projects")));
+        projects_file.SetRoot(new wxXmlNode(wxXML_ELEMENT_NODE, "projects"));
 
-        projects_file.Save(projectsFile);
+        projects_file.Save(projects_path);
     }
 
-    projects_file.Load(projectsFile);
+    projects_file.Load(projects_path);
 
-    wxXmlNode* name_node = new wxXmlNode(projects_file.GetRoot(), wxXML_ELEMENT_NODE, name);
+    wxXmlNode *name_node = new wxXmlNode(projects_file.GetRoot(), wxXML_ELEMENT_NODE, name);
 
-    wxXmlNode* description_node = new wxXmlNode(name_node, wxXML_ELEMENT_NODE
-                                                , wxT("description"));
+    wxXmlNode *description_node = new wxXmlNode(name_node, wxXML_ELEMENT_NODE
+                                                , "description");
                                     
-    new wxXmlNode(description_node, wxXML_TEXT_NODE, wxT("description"), description);
+    new wxXmlNode(description_node, wxXML_TEXT_NODE, "description", description);
 
-    wxXmlNode* commands_node = new wxXmlNode(name_node, wxXML_ELEMENT_NODE, wxT("commands"));
+    wxXmlNode *commands_node = new wxXmlNode(name_node, wxXML_ELEMENT_NODE, "commands");
 
     for(const wxString& i : commands){
 
-        wxXmlNode* command_node = new wxXmlNode(commands_node, wxXML_ELEMENT_NODE, wxT("command"));
+        wxXmlNode *command_node = new wxXmlNode(commands_node, wxXML_ELEMENT_NODE, "command");
 
-        new wxXmlNode(command_node, wxXML_TEXT_NODE, wxT("command"), i);
+        new wxXmlNode(command_node, wxXML_TEXT_NODE, "command", i);
 
     }            
-    // new wxXmlNode(commands_node, wxXML_TEXT_NODE, wxT("commands"), project->commands);    
 
-    projects_file.Save(projectsFile);
+    projects_file.Save(projects_path);
 
-    }
+}
