@@ -10,8 +10,8 @@ set(SOURCE
   scr/main.cpp scr/main.h
   scr/gui/res/gui.cpp scr/gui/res/gui.h
   scr/gui/mainframe.cpp scr/gui/mainframe.h
-  scr/util/write_project.cpp scr/util/write_project.h
-  scr/util/read_project.cpp scr/util/read_project.h
+  scr/logic/write_project.cpp scr/logic/write_project.h
+  scr/logic/read_project.cpp scr/logic/read_project.h
   scr/gui/add_project.cpp scr/gui/add_project.h
   )
 
