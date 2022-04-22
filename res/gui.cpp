@@ -2,20 +2,20 @@
 // C++ code generated with wxFormBuilder (version 3.10.1-0-g8feb16b3)
 // http://www.wxformbuilder.org/
 //
-// PLEASE DO *NOT *EDIT THIS FILE!
+// PLEASE DO *NOT* EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
 #include "gui.h"
 
 ///////////////////////////////////////////////////////////////////////////
 
-mainframe::mainframe( wxWindow *parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+mainframe::mainframe( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
 	menubar = new wxMenuBar( 0 );
 	help_menu = new wxMenu();
-	wxMenuItem *about_menuItem;
+	wxMenuItem* about_menuItem;
 	about_menuItem = new wxMenuItem( help_menu, wxID_ANY, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
 	help_menu->Append( about_menuItem );
 
@@ -23,18 +23,21 @@ mainframe::mainframe( wxWindow *parent, wxWindowID id, const wxString& title, co
 
 	this->SetMenuBar( menubar );
 
-	wxBoxSizer *vsizer;
-	vsizer = new wxBoxSizer( wxVERTICAL );
+	wxGridSizer* main_Sizer;
+	main_Sizer = new wxGridSizer( 1, 3, 0, 0 );
 
 	button_add_project = new wxButton( this, wxID_ANY, _("Add Project"), wxDefaultPosition, wxDefaultSize, 0 );
 
 	button_add_project->SetDefault();
 
 	button_add_project->SetBitmapPosition( wxLEFT );
-	vsizer->Add( button_add_project, 0, wxALL, 5 );
+	main_Sizer->Add( button_add_project, 0, wxALL, 5 );
+
+	project_listBox = new wxListBox( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_NEEDED_SB|wxLB_SINGLE|wxLB_SORT );
+	main_Sizer->Add( project_listBox, 0, wxALL|wxEXPAND, 5 );
 
 
-	this->SetSizer( vsizer );
+	this->SetSizer( main_Sizer );
 	this->Layout();
 
 	this->Centre( wxBOTH );
@@ -48,11 +51,11 @@ mainframe::~mainframe()
 {
 }
 
-aboutframe::aboutframe( wxWindow *parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+aboutframe::aboutframe( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
-	wxBoxSizer *Sizer;
+	wxBoxSizer* Sizer;
 	Sizer = new wxBoxSizer( wxVERTICAL );
 
 	Title_text = new wxStaticText( this, wxID_ANY, _("Project Manager"), wxDefaultPosition, wxSize( -1,40 ), wxALIGN_CENTER_HORIZONTAL );
@@ -77,11 +80,11 @@ aboutframe::~aboutframe()
 {
 }
 
-add_projectframe::add_projectframe( wxWindow *parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
-	wxBoxSizer *addproject_Sizer;
+	wxBoxSizer* addproject_Sizer;
 	addproject_Sizer = new wxBoxSizer( wxVERTICAL );
 
 	add_name_staticText = new wxStaticText( this, wxID_ANY, _("Project Name"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL );

@@ -1,7 +1,7 @@
 #ifndef add_project_H
 #define add_project_H
 
-#include"res/gui.h"
+#include"gui.h"
 
 class pm_add_project_frame : public add_projectframe{
 

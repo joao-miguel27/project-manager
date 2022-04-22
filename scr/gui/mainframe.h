@@ -1,7 +1,7 @@
 #ifndef mainframe_H
 #define mainframe_H
 
-#include"res/gui.h"
+#include<gui.h>
 
 class pm_mainframe : public mainframe{
 

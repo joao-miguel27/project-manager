@@ -1,7 +1,7 @@
 #include"mainframe.h"
 #include"iostream"
-#include"../logic/write_project.h"
-#include"../logic/read_project.h"
+#include"write_project.h"
+#include"read_project.h"
 
 pm_mainframe::pm_mainframe(wxWindow *parent) : mainframe(parent){}
 pm_aboutframe::pm_aboutframe(wxWindow *parent) : aboutframe(parent){}
