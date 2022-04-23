@@ -13,6 +13,8 @@ class pm_mainframe : public mainframe{
 
 	public:
 
+        void list_project();
+        void refresh_list( wxActivateEvent& event );
 		pm_mainframe(wxWindow *parent);
 
 };
@@ -28,5 +30,6 @@ class pm_aboutframe : public aboutframe{
         pm_aboutframe(wxWindow *parent);
 
 };
+
 
 #endif

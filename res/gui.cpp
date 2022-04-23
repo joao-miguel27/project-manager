@@ -24,7 +24,7 @@ mainframe::mainframe( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->SetMenuBar( menubar );
 
 	wxGridSizer* main_Sizer;
-	main_Sizer = new wxGridSizer( 1, 3, 0, 0 );
+	main_Sizer = new wxGridSizer( 1, 2, 0, 0 );
 
 	button_add_project = new wxButton( this, wxID_ANY, _("Add Project"), wxDefaultPosition, wxDefaultSize, 0 );
 
@@ -43,40 +43,12 @@ mainframe::mainframe( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Centre( wxBOTH );
 
 	// Connect Events
+	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( mainframe::refresh_list ) );
 	help_menu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( mainframe::about_screen ), this, about_menuItem->GetId());
 	button_add_project->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( mainframe::add_project ), NULL, this );
 }
 
 mainframe::~mainframe()
-{
-}
-
-aboutframe::aboutframe( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-
-	wxBoxSizer* Sizer;
-	Sizer = new wxBoxSizer( wxVERTICAL );
-
-	Title_text = new wxStaticText( this, wxID_ANY, _("Project Manager"), wxDefaultPosition, wxSize( -1,40 ), wxALIGN_CENTER_HORIZONTAL );
-	Title_text->Wrap( -1 );
-	Title_text->SetFont( wxFont( 15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
-
-	Sizer->Add( Title_text, 0, wxALL|wxEXPAND, 5 );
-
-	description = new wxStaticText( this, wxID_ANY, _("Description: An educative project"), wxDefaultPosition, wxDefaultSize, 0 );
-	description->Wrap( -1 );
-	Sizer->Add( description, 0, wxALL|wxEXPAND, 5 );
-
-
-	this->SetSizer( Sizer );
-	this->Layout();
-	Sizer->Fit( this );
-
-	this->Centre( wxBOTH );
-}
-
-aboutframe::~aboutframe()
 {
 }
 
@@ -145,5 +117,34 @@ add_projectframe::add_projectframe( wxWindow* parent, wxWindowID id, const wxStr
 }
 
 add_projectframe::~add_projectframe()
+{
+}
+
+aboutframe::aboutframe( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+
+	wxBoxSizer* Sizer;
+	Sizer = new wxBoxSizer( wxVERTICAL );
+
+	Title_text = new wxStaticText( this, wxID_ANY, _("Project Manager"), wxDefaultPosition, wxSize( -1,40 ), wxALIGN_CENTER_HORIZONTAL );
+	Title_text->Wrap( -1 );
+	Title_text->SetFont( wxFont( 15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
+
+	Sizer->Add( Title_text, 0, wxALL|wxEXPAND, 5 );
+
+	description = new wxStaticText( this, wxID_ANY, _("Description: An educative project"), wxDefaultPosition, wxDefaultSize, 0 );
+	description->Wrap( -1 );
+	Sizer->Add( description, 0, wxALL|wxEXPAND, 5 );
+
+
+	this->SetSizer( Sizer );
+	this->Layout();
+	Sizer->Fit( this );
+
+	this->Centre( wxBOTH );
+}
+
+aboutframe::~aboutframe()
 {
 }

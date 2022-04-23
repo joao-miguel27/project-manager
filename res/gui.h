@@ -43,6 +43,7 @@ class mainframe : public wxFrame
 		wxListBox* project_listBox;
 
 		// Virtual event handlers, override them in your derived class
+		virtual void refresh_list( wxActivateEvent& event ) { event.Skip(); }
 		virtual void about_screen( wxCommandEvent& event ) { event.Skip(); }
 		virtual void add_project( wxCommandEvent& event ) { event.Skip(); }
 
@@ -52,25 +53,6 @@ class mainframe : public wxFrame
 		mainframe( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Project Manager"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 499,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
 		~mainframe();
-
-};
-
-///////////////////////////////////////////////////////////////////////////////
-/// Class aboutframe
-///////////////////////////////////////////////////////////////////////////////
-class aboutframe : public wxFrame
-{
-	private:
-
-	protected:
-		wxStaticText* Title_text;
-		wxStaticText* description;
-
-	public:
-
-		aboutframe( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("About"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxCAPTION|wxCLOSE_BOX|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR|wxTAB_TRAVERSAL );
-
-		~aboutframe();
 
 };
 
@@ -104,6 +86,25 @@ class add_projectframe : public wxFrame
 		add_projectframe( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Add Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxCAPTION|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR|wxFRAME_TOOL_WINDOW|wxSTAY_ON_TOP|wxTAB_TRAVERSAL );
 
 		~add_projectframe();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class aboutframe
+///////////////////////////////////////////////////////////////////////////////
+class aboutframe : public wxFrame
+{
+	private:
+
+	protected:
+		wxStaticText* Title_text;
+		wxStaticText* description;
+
+	public:
+
+		aboutframe( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("About"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxCAPTION|wxCLOSE_BOX|wxFRAME_FLOAT_ON_PARENT|wxFRAME_NO_TASKBAR|wxTAB_TRAVERSAL );
+
+		~aboutframe();
 
 };
 

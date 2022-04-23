@@ -22,7 +22,6 @@ void pm_add_project_frame::add_project_name(wxCommandEvent& event){
 
     name = add_name_textCtrl->GetLineText(0);
 
-
 }
 
 void pm_add_project_frame::add_description(wxCommandEvent& event){

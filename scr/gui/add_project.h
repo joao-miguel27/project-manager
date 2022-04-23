@@ -15,7 +15,6 @@ class pm_add_project_frame : public add_projectframe{
 
     public:
         pm_add_project_frame(wxWindow *parent);
-        // ~pm_add_project_frame();
 
 };
 
